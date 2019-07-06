@@ -1,0 +1,32 @@
+html, body {
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("../img/vgimg.jpg");
+    /* Full height */
+    height: 50%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    
+}
+
+
+h1 {
+    font-size: 5rem;
+    color: #f5f5f5;
+    text-shadow: 4px 4px 3px black;
+    padding-left: 3.5rem;
+}
+
+p{
+    color: gray;
+    font-size: 1.3rem;
+    padding-left: 3rem;
+}
