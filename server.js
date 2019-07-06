@@ -35,10 +35,22 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/routes")(app);
+require("./routes/routes.js")(app);
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/siliconeraNews", { useNewUrlParser: true });
+mongoose.Promise = Promise;
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/siliconeraNews";
+mongoose.connect(MONGODB_URI);
+//mongoose.connect("mongodb://localhost/siliconeraNews");
+var mong = mongoose.connection;
+
+mong.on('error', function (err) {
+    console.log('Mongoose Error: ', err);
+});
+
+mong.once('open', function () {
+    console.log('Mongoose connection successful.');
+});
 
 // Start the server
 app.listen(PORT, function () {
@@ -48,3 +60,4 @@ app.listen(PORT, function () {
         PORT
     );
 });
+

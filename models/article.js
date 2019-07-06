@@ -16,9 +16,15 @@ var ArticleSchema = new Schema({
     type: String,
     required: true
   },
-  img:{
-      type: String,
-      required: true
+  saved:{
+    type:Boolean,
+    default: false
+  },
+  summary:{
+      type: String
+  },
+  image:{
+    type: String
   },
   // `note` is an object that stores a Note id
   // The ref property links the ObjectId to the Note model
