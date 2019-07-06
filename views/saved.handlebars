@@ -1,26 +1,3 @@
-<div class="modal fade" tabindex="-1" role="dialog" id="notes-modal">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" data-id="{{_id}}">Article Notes: {{{thisId}}}</h4>
-            </div>
-            <div class="modal-body">
-                <div class="card">
-                    <div class="card-body" id="notes">
-
-                    </div>
-                </div>
-                <hr>
-                <div class="card" id="note-form">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Scrape</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -39,36 +16,42 @@
 </nav>
 <!--End Nav-->
 <div class="bg">
-    <div class="jumbotron-fluid">
-        <div class="row">
-            <div class="col-6 title">
-                <h1>Saved Articles</h1>
-                <p>Your Saved News</p>
-            </div>
-            
-        </div>
+  <div class="jumbotron-fluid">
+    <div class="row">
+      <div class="col-6 title">
+        <h1>Saved Articles</h1>
+        <p>Your Saved News</p>
+      </div>
+
     </div>
+  </div>
 </div>
 
 
-{{!-- Container for dynamically populating our articles --}}
 <div class="container-fluid article-container">
+  <div class="row">
     {{#each articles}}
-    <div class="panel panel-default">
-        <div class="panel-heading article-panel">
-            <h3>
-                <a class="article-link" href="{{link}}">{{title}}</a>
-                <a class="btn btn-danger save article-unsave" data-id="{{_id}}">Unsave Article</a>
-                <button class="btn btn-warning add-note-btn" data-id="{{_id}}">Add Note</button>
-            </h3>
-            <span class="article-summary">{{summary}}</span>
+    <div class="card border-success m-2">
+      <div class="card-body">
+        <h6>
+          <a class="article-link" href="{{link}}">{{title}}</a>
+        </h6>
+        <span class="article-summary">{{summary}}</span>
+      </div>
+      <div class="card-footer">
+        <div class="row">
+          <div class="col-6">
+            <a class="btn btn-outline-danger btn-sm save article-unsave" data-id="{{_id}}">Delete</a>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-outline-success btn-sm add-note-btn" data-id="{{_id}}">Add Comment</button>
+          </div>
         </div>
-        <div class="panel-body">
-            <span class="article-category">Content Type: {{category}}</span>
-            <span class="article-date">Published @ {{timeStamp}}</span>
-        </div>
+      </div>
+
     </div>
     {{/each}}
+  </div>
 </div>
 
 <!--Scripts-->
@@ -77,5 +60,5 @@
   integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
   integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
- <script src="./assets/js/app.js"></script>
- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="./assets/js/app.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

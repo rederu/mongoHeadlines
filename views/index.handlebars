@@ -33,24 +33,24 @@
 </div>
 
 
-{{!-- Container for dynamically populating our articles --}}
 <div class="container-fluid article-container">
-    {{#each articles}} {{!--Show articles that are not saved here. Articles will vanish as they are saved --}} {{#unless saved}}
-    <div class="panel panel-default">
-        <div class="panel-heading article-panel">
-            <h3>
-                <a class="article-link" href="{{link}}">{{title}}</a>
-                <a class="btn btn-success save article-save" data-id="{{_id}}">Save Article</a>
-            </h3>
-            <span class="article-summary">{{summary}}</span>
-        </div>
-        <div class="panel-body">
-            <span class="article-category">Content Type: {{category}}</span>
-            <span class="article-date">Published @ {{timeStamp}}</span>
-        </div>
+  <div class="row">
+    {{#each articles}} {{#unless saved}}
+    <div class="card border-primary m-2">
+      <div class="card-body">
+      <h6>
+        <a class="article-link" href="{{link}}">{{title}}</a>
+      </h6>
+        <span class="card-text article-summary">{{summary}}</span>
+      </div>
+      <div class="card-footer">
+        <a class="btn btn-outline-info btn-sm save article-save" data-id="{{_id}}">Save Article</a>
+      </div>
     </div>
     {{/unless}} {{/each}}
+  </div>
 </div>
+
 
 
 <!--Scripts-->

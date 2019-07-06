@@ -14,6 +14,7 @@ html, body {
     background-size: cover;
     display: flex;
     align-items: center;
+    margin-bottom: 30px;
     
 }
 
@@ -29,4 +30,29 @@ p{
     color: gray;
     font-size: 1.3rem;
     padding-left: 3rem;
+}
+
+.card{
+    width:18rem;
+}
+
+.row{
+    justify-content: center;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.card-body{
+    text-align: justify;
+    padding: 1rem;
+    background-color:rgba(52, 168, 223, 0.329)
+}
+
+.card-text{
+    font-size: 0.7rem;
+}
+
+h6{
+    font-weight: bold;
+    text-align: justify;
 }
