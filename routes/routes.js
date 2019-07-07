@@ -5,11 +5,12 @@ var axios = require("axios");
 
 //var router = express.Router();
 module.exports = function (app) {
+
     //Main router functionality
     app.get("/", function (req, res) {
         db.Article.find({}).then(function (dbArticle) {
             var hbsObject = {
-                arricles: dbArticle
+                articles: dbArticle
             }
             res.render("index", hbsObject);
         }).catch(function (err) {
@@ -56,6 +57,7 @@ module.exports = function (app) {
                     });
             });
             res.redirect("/");
+            
         });
     });
 
@@ -79,9 +81,9 @@ module.exports = function (app) {
     });
 
     app.post("/api/articles/:id", function (req, res) {
-        db.Note.create(req.body)
-            .then(function (dbNote) {
-                return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
+        db.Comment.create(req.body)
+            .then(function (dbComment) {
+                return db.Article.findOneAndUpdate({ _id: req.params.id }, { comment: dbComment._id }, { new: true });
             })
             .then(function (dbArticle) {
                 res.json(dbArticle);
@@ -92,8 +94,8 @@ module.exports = function (app) {
     });
 
     app.delete("/api/articles/:id", function (req, res) {
-        db.Note.remove({ _id: req.params.id }).then(function () {
-            db.Article.findOneAndUpdate({ note: req.params.id }, { note: null }, { new: true }).then(function (dbArticle) {
+        db.Comment.remove({ _id: req.params.id }).then(function () {
+            db.Article.findOneAndUpdate({ comment: req.params.id }, { comment: null }, { new: true }).then(function (dbArticle) {
                 res.json(dbArticle);
             }).catch(function (err) {
                 res.json(err);
@@ -109,7 +111,7 @@ module.exports = function (app) {
         });
     });
 
-    app.post("/api/articles/unsave/:id", function (req, res) {
+    app.post("/api/articles/delete/:id", function (req, res) {
         db.Article.findOneAndUpdate({ _id: req.params.id }, { saved: false }, { new: true }).then(function (dbArticle) {
             res.json(dbArticle);
         }).catch(function (err) {
