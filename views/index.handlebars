@@ -36,10 +36,10 @@
 <div class="container-fluid article-container">
   <div class="row">
     {{#each articles}} {{#unless saved}}
-    <div class="card border-primary m-2">
-      <div class="card-body">
+    <div class="card card-article border-primary m-2">
+      <div class="card-body article-body">
       <h6>
-        <a class="article-link" href="{{link}}">{{title}}</a>
+        <a class="article-link" href="{{link}}" target="_blank">{{title}}</a>
       </h6>
         <span class="card-text article-summary">{{summary}}</span>
       </div>

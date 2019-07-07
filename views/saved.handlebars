@@ -1,3 +1,4 @@
+<!--Nav Bar-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Scrape</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -15,6 +16,7 @@
   </div>
 </nav>
 <!--End Nav-->
+
 <div class="bg">
   <div class="jumbotron-fluid">
     <div class="row">
@@ -31,20 +33,20 @@
 <div class="container-fluid article-container">
   <div class="row">
     {{#each articles}}
-    <div class="card border-success m-2">
-      <div class="card-body">
+    <div class="card card-article border-success m-2">
+      <div class="card-body article-body">
         <h6>
-          <a class="article-link" href="{{link}}">{{title}}</a>
+          <a class="article-link" href="{{link}}" target="_blank">{{title}}</a>
         </h6>
         <span class="article-summary">{{summary}}</span>
       </div>
       <div class="card-footer">
         <div class="row">
           <div class="col-6">
-            <a class="btn btn-outline-danger btn-sm save article-unsave" data-id="{{_id}}">Delete</a>
+            <a class="btn btn-outline-danger btn-sm save delete" data-id="{{_id}}">Delete</a>
           </div>
           <div class="col-6">
-            <button class="btn btn-outline-success btn-sm add-note-btn" data-id="{{_id}}">Add Comment</button>
+            <button class="btn btn-outline-success btn-sm comment" data-id="{{_id}}">Add Comment</button>
           </div>
         </div>
       </div>
@@ -53,6 +55,43 @@
     {{/each}}
   </div>
 </div>
+
+<!--Modal-->
+<div class="modal fade" tabindex="-1" role="dialog" id="commentModal">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" data-id="{{_id}}">Add a Comment On: {{{id}}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card border-0">
+          <div class="card-body" id="comments">
+
+          </div>
+        </div>
+        <hr>
+        <div class="card border-0" id="comment-input">
+          <form class="form-comment">
+            <div class="form-group">
+              <label for="CommentSubject">Subject</label>
+              <input type="text" class="form-control" id="comment-title" aria-describedby="CommentSubject"
+                placeholder="Title">
+            </div>
+            <div class="form-group">
+              <label for="CommentText">Password</label>
+              <input type="text" class="form-control" id="comment-body" placeholder="Add your comment...">
+            </div>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Modal-->
 
 <!--Scripts-->
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
