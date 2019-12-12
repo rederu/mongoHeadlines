@@ -1,7 +1,8 @@
-# Mongo Headlines
-## What is Mongo Headlines?
 
-Mongo Headlines is a web app that lets users view and leave comments on the latest news. It is powered by the following dependencies:
+## What is Mongo Headlines?
+<center><img src="https://i.imgur.com/sqUtK35.png"</center>
+
+Mongo Headlines (Siliconera Scraper version) is a web app that lets users view and leave comments on the latest news. It is powered by the following dependencies:
 <ul>
   <li>Morgan</li>
   <li>Mongoose</li>
@@ -22,4 +23,4 @@ All the saved articles can be viewed on the <b> Saved Articles </b> link, locate
 When the user wants to add a comment, a modal window will appear that will allow to add a subject and a comment to the selected article. If there is an old comment on the selected article, it also will be displayed on  this modal window.
 
 ### Live Demo
-[Live Demo](https://intense-scrubland-30733.herokuapp.com/)
+[Siliconera Scraper](https://intense-scrubland-30733.herokuapp.com/)
